@@ -756,6 +756,7 @@ foreach ($ligas as $nomeLiga => $times) {
             align-items: center;
             justify-content: center;
             font-size: 2rem;
+            flex-direction: column;
         }
 
         .div-amarela {
@@ -766,6 +767,46 @@ foreach ($ligas as $nomeLiga => $times) {
             align-items: center;
             justify-content: center;
             font-size: 2rem;
+            flex-direction: column;
+        }
+        
+        .div-btn {
+            flex: 1;
+            background:rgb(101, 101, 101);
+            color: #FFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+        .btn-sortear {
+            padding: 18px 40px;
+            font-size: 1.3rem;
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-weight: bold;
+            color: #222;
+            background: linear-gradient(90deg, #FFD600 0%, #FFEA00 100%);
+            border: none;
+            border-radius: 40px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+            outline: none;
+        }
+
+        .btn-sortear:hover, .btn-sortear:focus {
+            background: linear-gradient(90deg, #FFEA00 0%, #FFD600 100%);
+            color: #000;
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+        }
+
+        h2, h5 {
+            margin: 0px;
+        }
+
+        h5 {
+            margin-bottom: 8px!important;
         }
 
         @media (max-width: 700px) {
@@ -774,6 +815,7 @@ foreach ($ligas as $nomeLiga => $times) {
             }
 
             .div-preta,
+            .div-btn,
             .div-amarela {
                 font-size: 1.2rem;
                 height: 50vh;
@@ -784,9 +826,24 @@ foreach ($ligas as $nomeLiga => $times) {
 
 <body>
     <div class="container">
-        <div class="div-preta">Liga: <?php echo $nomeLigaAleatorio ?></div>
-        <div class="div-amarela">Time: <?php echo $nomeTimeAleatorio ?></div>
+        <div class="div-preta">
+            <h5>Liga</h5>
+            <h2><?php echo $nomeLigaAleatorio ?></h2>
+        </div>
+        <div class="div-btn">
+            <button class="btn-sortear" onClick="sortearTime()">Sortear time</button>
+        </div>
+        <div class="div-amarela">
+            <h5>Time</h5>
+            <h2><?php echo $nomeTimeAleatorio ?></h2>
+        </div>
     </div>
 </body>
 
 </html>
+
+<script>
+    function sortearTime() {
+        location.reload();
+    }
+</script>
